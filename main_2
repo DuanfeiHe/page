@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欢迎来到我的网页</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .welcome-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+        h1 {
+            color: #333333;
+            margin-bottom: 20px;
+            animation: bounceInDown 1s ease-in-out forwards;
+        }
+        p {
+            color: #666666;
+            font-size: 18px;
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes bounceInDown {
+            0% { transform: translateY(-100%); }
+            50% { transform: translateY(20px); }
+            70% { transform: translateY(-10px); }
+            90% { transform: translateY(5px); }
+            100% { transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+      
+        
+        .welcome-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.7);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* 使按钮能够相对于此容器定位 */
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        /* 新增按钮样式 */
+        .color-switch-button {
+            position: absolute;
+            bottom: -80px; /* 调整这个值可以控制按钮距离容器底部的距离 */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s;
+        }
+
+        .color-switch-button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <h1>何段兵是小小老弟</h1>
+        <!-- 按钮置于文字方块内部 -->
+        <button class="color-switch-button" id="colorSwitch">切换背景颜色</button>
+    </div>
+    <script>
+        // 用于存储和切换的背景颜色数组
+        var colors = ['#f4f4f9', 'black'];
+        var currentColorIndex = 0;
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const container = document.querySelector('.welcome-container');
+            const colorSwitchButton = document.getElementById('colorSwitch');
+
+            // 添加点击事件监听器到按钮
+            colorSwitchButton.addEventListener('click', function() {
+                currentColorIndex = (currentColorIndex + 1) % colors.length;
+                document.body.style.backgroundColor = colors[currentColorIndex];
+            });
+
+            // 初始化动画播放状态
+            container.style.animationPlayState = 'running';
+        });
+    </script>
+</body>
+</html>
