@@ -1,40 +1,40 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>   <！DOCTYPE html   超文本标记语言。>
+<html       < html   超文本标记语言。 lang   只 = "应用" >< html lang   只 = "应用" >lang="zh-CN">
+<head      < >头< >头>
+          <meta charset   字符集="UTF-8"   “utf - 8”>
+    <meta name   名字。="viewport"   “视口” content   内容="width=device-width, initial-scale=1.0">
     <title>欢迎来到我的网页</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background: url('background.jpg') no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
+          <时尚><时尚><style>
+        body    身体   身体{{{
+            font-family:宋体;font-family   字体类型:宋体;font-family   字体类型: 'Arial', sans-serif   无衬线;
+            背景:url(' Background .jpg')不重复中心中心固定;背景:url(' Background .jpg')不重复中心中心固定;background: url('background.jpg') no-repeat center center fixed;
+            -webkit-background-size:封面;-webkit-background-size:封面;-webkit-background-size: cover;
+            -moz-background-size:封面;-moz-background-size:封面;-moz-background-size: cover;
+            -o-background-size:封面;-o-background-size:封面;-o-background-size: cover;
+                  background-size:封面;background-size:封面;background-size: cover;
+                  保证金:0;保证金:0;margin: 0;
+                  填充:0;填充:0;padding: 0;
+                  显示:flex;显示:flex;display: flex;
+                  justify-content:中心;justify-content:中心;justify-content: center;
+                  对齐项目:中心;对齐项目:中心;align-items   对齐项目: center;
+                  身高:100 vh;身高:100 vh;height: 100vh;
         }
         .welcome-container {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 50px;
+               text-align:中心;text-align: center;
+            Background-color: rgba(255,255,255,0.7);background-color: rgba(255, 255, 255, 0.7);
+               填充:50 px;padding: 50px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            Box-shadow: 0 0 10px rgba(0,0,0,0.1);box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             animation: fadeIn 2s ease-in-out forwards;
         }
         h1 {
-            color: #333333;
+               颜色:# 333333;color: #333333;
             margin-bottom: 20px;
-            animation: bounceInDown 1s ease-in-out forwards;
+            动画:bounceInDown 1s ease-in-out forward;animation: bounceInDown 1s ease-in-out forwards;
         }
         p {
-            color: #666666;
-            font-size: 18px;
+               颜色:# 666666;color: #666666;
+            font-size: 18px;   字体大小:18 px;
             animation: fadeInUp 1s ease-in-out forwards;
         }
         @keyframes fadeIn {
@@ -55,11 +55,11 @@
       
         
         .welcome-container {
-            text-align: center;
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 50px;
+            text-align: center;   text-align:中心;
+            background-color: rgba(255, 255, 255, 0.7);Background-color: rgba(255,255,255,0.7);
+            padding: 50px;   填充:50 px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);Box-shadow: 0 0 10px rgba(0,0,0,0.1);
             position: relative; /* 使按钮能够相对于此容器定位 */
             animation: fadeIn 2s ease-in-out forwards;
         }
@@ -123,10 +123,16 @@
             // 初始化动画播放状态
             container.style.animationPlayState = 'running';
         });
-        document.addEventListener('click', function() {
-    var audioElement = document.querySelector('audio');
-    audioElement.muted = false; // 取消静音
-});
+        // 在DOM加载完成时尝试播放音频，但不设置静音
+const audioElement = document.querySelector('audio');
+if (!audioElement.play().catch(() => {})) {
+    // 如果播放成功，那么不需要额外操作
+} else {
+    // 如果播放失败（可能是由于自动播放限制），则等待用户交互
+    document.addEventListener('click', function() {
+        audioElement.play(); // 用户交互后尝试播放
+    });
+}
     </script>
 </body>
 </html>
