@@ -99,10 +99,10 @@
         <a href="https://duanfeihe.github.io/test-page/page/main_1" >小勇点这里</a>
         <a href="https://duanfeihe.github.io/test-page/page/main_2" >小兵点这里</a>
         <button class="color-switch-button" id="colorSwitch">切换背景颜色</button>
-        <audio autoplay loop>
+        <audio autoplay loop muted>
             <source src="your-song.mp3" type="audio/mpeg">
-            您的浏览器不支持 HTML5 audio 元素。
-          </audio>
+        您的浏览器不支持 HTML5 audio 元素。
+        </audio>
 
     </div>
     <script>
@@ -123,6 +123,10 @@
             // 初始化动画播放状态
             container.style.animationPlayState = 'running';
         });
+        document.addEventListener('click', function() {
+    var audioElement = document.querySelector('audio');
+    audioElement.muted = false; // 取消静音
+});
     </script>
 </body>
 </html>
