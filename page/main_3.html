@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>简易资料填写</title>
+</head>
+<body>
+    <form id="myForm">
+        <label for="name">姓名:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">邮箱:</label>
+        <input type="email" id="email" name="email"><br><br>
+        <button type="submit">提交</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 阻止表单的默认提交行为
+
+            // 获取表单数据
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            // 读取现有数据
+            let existingData = [];
+            if (localStorage.getItem('data')) {
+                existingData = JSON.parse(localStorage.getItem('data'));
+            }
+
+            // 添加新数据
+            existingData.push({ name, email });
+
+            // 保存到LocalStorage
+            localStorage.setItem('data', JSON.stringify(existingData));
+
+            // 创建JSON文件
+            const blob = new Blob([JSON.stringify(existingData, null, 4)], { type: 'application/json' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'data.json';
+            link.click();
+
+            alert('资料提交成功！');
+        });
+    </script>
+</body>
+</html>
